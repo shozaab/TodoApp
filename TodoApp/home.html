@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Student Management System
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <ion-item>
+              <ion-label color="primary" floating>Student Name</ion-label>
+              <ion-input type="text" [(ngModel)]="name"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label color="primary" floating>Student Age</ion-label>
+              <ion-input type="number" [(ngModel)]="age"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label color="primary" floating>Gender</ion-label>
+              <ion-select [(ngModel)]="gender">
+                <ion-option value="Female">Female</ion-option>
+                <ion-option value="Male">Male</ion-option>
+              </ion-select>
+          </ion-item>
+          <button ion-button round (click)="addStudent()">Add Student</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid padding>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+        <ion-col class="thead"><th>Student Name</th></ion-col>
+        <ion-col class="thead"><th>Student Age</th></ion-col>
+        <ion-col class="thead"><th>Student Gender</th></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-row *ngFor="let s of students">
+            <ion-col></ion-col>
+            <ion-col class="tbody">{{s.name}}</ion-col> 
+            <ion-col class="tbody">{{s.age}}</ion-col>  
+            <ion-col class="tbody">{{s.gender}}</ion-col>   
+          </ion-row>  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
